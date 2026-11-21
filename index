@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Handwritten Digit Recognizer</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- TensorFlow.js: runs the neural network directly in the browser -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js"></script>
+</head>
+<body>
+  <main class="app">
+    <h1>Handwritten Digit Recognizer</h1>
+    <p class="subtitle">Draw a single digit (0&ndash;9) in the box below.</p>
+
+    <!-- Model status (loading / training / ready) -->
+    <section class="status-panel">
+      <div id="status">Starting...</div>
+      <div class="progress"><div id="progress-bar"></div></div>
+    </section>
+
+    <div class="workspace">
+      <!-- Drawing area -->
+      <section class="card">
+        <h2>Draw here</h2>
+        <canvas id="draw-canvas" width="280" height="280"></canvas>
+        <div class="buttons">
+          <button id="clear-btn">Clear</button>
+          <button id="retrain-btn" class="secondary">Retrain model</button>
+        </div>
+      </section>
+
+      <!-- Prediction results -->
+      <section class="card">
+        <h2>Result</h2>
+        <div id="prediction" class="prediction">?</div>
+        <div id="confidence" class="confidence">&nbsp;</div>
+        <div class="preview-row">
+          <span>What the model sees (28&times;28):</span>
+          <canvas id="preview-canvas" width="28" height="28"></canvas>
+        </div>
+        <div id="bars" class="bars"></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="mnist-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
