@@ -11,7 +11,7 @@
 <body>
   <main class="app">
     <h1>Handwritten Digit Recognizer</h1>
-    <p class="subtitle">Draw a single digit (0&ndash;9) in the box below.</p>
+    <p class="subtitle">Draw one or more digits (0&ndash;9) with a small gap between them.</p>
 
     <!-- Model status (loading / training / ready) -->
     <section class="status-panel">
@@ -23,7 +23,7 @@
       <!-- Drawing area -->
       <section class="card">
         <h2>Draw here</h2>
-        <canvas id="draw-canvas" width="280" height="280"></canvas>
+        <canvas id="draw-canvas" width="420" height="280" style="width: 100%; max-width: 420px; height: auto;"></canvas>
         <div class="buttons">
           <button id="clear-btn">Clear</button>
           <button id="retrain-btn" class="secondary">Retrain model</button>
@@ -36,7 +36,7 @@
         <div id="prediction" class="prediction">?</div>
         <div id="confidence" class="confidence">&nbsp;</div>
         <div class="preview-row">
-          <span>What the model sees (28&times;28):</span>
+          <span>Last digit seen (28&times;28):</span>
           <canvas id="preview-canvas" width="28" height="28"></canvas>
         </div>
         <div id="bars" class="bars"></div>
